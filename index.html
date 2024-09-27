@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optical Fiber Power Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+<div class="bg-white p-6 rounded-lg shadow-lg w-80">
+    <h2 class="text-2xl font-semibold text-center">Optical Power Calculator</h2>
+    
+    <input type="number" id="inputPower" placeholder="Input Power (dBm)" step="any" class="mt-4 p-2 border border-gray-300 rounded w-full">
+    
+    <label for="splitType" class="mt-4 block">Select Split Type:</label>
+    <select id="splitType" onchange="toggleInputFields()" class="mt-2 p-2 border border-gray-300 rounded w-full">
+        <option value="ratio">Splitter Ratio (1:n)</option>
+        <option value="percentage">Split Percentage (%)</option>
+    </select>
+    
+    <div id="ratioInput" class="mt-4">
+        <input type="number" id="splitRatio" placeholder="Enter Split Ratio (e.g., 4 for 1:4)" step="any" class="p-2 border border-gray-300 rounded w-full">
+    </div>
+
+    <div id="percentageInput" class="mt-4" style="display: none;">
+        <input type="number" id="splitPercentage" placeholder="Enter Split Percentage (e.g., 70)" step="any" max="100" class="p-2 border border-gray-300 rounded w-full">
+    </div>
+
+    <button onclick="calculatePower()" class="mt-4 p-2 bg-green-500 text-white rounded w-full hover:bg-green-600">Calculate</button>
+
+    <div class="output mt-4 text-center" id="output"></div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
